@@ -4,42 +4,57 @@ function write_info(setup, elements, grid)
   # Title
   ti_size    = string(get_nested_field(elements, element = :TITLE, field = :size))
   ti_box     = string(get_nested_field(elements, element = :TITLE, field = :box))
-  ti_coord_x = string(grid[parse(Int, ti_box), 2])
-  ti_coord_y = string(grid[parse(Int, ti_box), 3])
-  ti_width   = string(ifelse(parse(Int, ti_size) < 3, setup.box_width, 2 * setup.box_width))
-  ti_height  = string(ifelse(isodd(parse(Int, ti_size)), setup.box_height, 2 * setup.box_height))
+  if ti_box == "nothing"
+    ti_box = "1"
+  end
+  ti_coord_x = string(grid[tryparse(Int, ti_box), 2])
+  ti_coord_y = string(grid[tryparse(Int, ti_box), 3])
+  ti_width   = string(ifelse(tryparse(Int, ti_size) < 3, setup.box_width, 2 * setup.box_width))
+  ti_height  = string(ifelse(isodd(tryparse(Int, ti_size)), setup.box_height, 2 * setup.box_height))
   
   # Text
   te_size    = string(get_nested_field(elements, element = :TEXT, field = :size))
   te_box     = string(get_nested_field(elements, element = :TEXT, field = :box))
-  te_coord_x = string(grid[parse(Int, te_box), 2])
-  te_coord_y = string(grid[parse(Int, te_box), 3])
-  te_width   = string(ifelse(parse(Int, te_size) < 3, setup.box_width, 2 * setup.box_width))
-  te_height  = string(ifelse(isodd(parse(Int, te_size)), setup.box_height, 2 * setup.box_height))
+  if te_box == "nothing"
+    te_box = "1"
+  end
+  te_coord_x = string(grid[tryparse(Int, te_box), 2])
+  te_coord_y = string(grid[tryparse(Int, te_box), 3])
+  te_width   = string(ifelse(tryparse(Int, te_size) < 3, setup.box_width, 2 * setup.box_width))
+  te_height  = string(ifelse(isodd(tryparse(Int, te_size)), setup.box_height, 2 * setup.box_height))
   
   # Image
   im_size    = string(get_nested_field(elements, element = :IMG, field = :size))
   im_box     = string(get_nested_field(elements, element = :IMG, field = :box))
-  im_coord_x = string(grid[parse(Int, im_box), 2])
-  im_coord_y = string(grid[parse(Int, im_box), 3])
-  im_width   = string(ifelse(parse(Int, im_size) < 3, setup.box_width, 2 * setup.box_width))
-  im_height  = string(ifelse(isodd(parse(Int, im_size)), setup.box_height, 2 * setup.box_height))
+  if im_box == "nothing"
+    im_box = "1"
+  end
+  im_coord_x = string(grid[tryparse(Int, im_box), 2])
+  im_coord_y = string(grid[tryparse(Int, im_box), 3])
+  im_width   = string(ifelse(tryparse(Int, im_size) < 3, setup.box_width, 2 * setup.box_width))
+  im_height  = string(ifelse(isodd(tryparse(Int, im_size)), setup.box_height, 2 * setup.box_height))
   
   # Date
   da_size    = string(get_nested_field(elements, element = :DATE, field = :size))
   da_box     = string(get_nested_field(elements, element = :DATE, field = :box))
-  da_coord_x = string(grid[parse(Int, da_box), 2])
-  da_coord_y = string(grid[parse(Int, da_box), 3])
-  da_width   = string(ifelse(parse(Int, da_size) < 3, setup.box_width, 2 * setup.box_width))
-  da_height  = string(ifelse(isodd(parse(Int, da_size)), setup.box_height, 2 * setup.box_height))
+  if da_box == "nothing"
+    da_box = "1"
+  end
+  da_coord_x = string(grid[tryparse(Int, da_box), 2])
+  da_coord_y = string(grid[tryparse(Int, da_box), 3])
+  da_width   = string(ifelse(tryparse(Int, da_size) < 3, setup.box_width, 2 * setup.box_width))
+  da_height  = string(ifelse(isodd(tryparse(Int, da_size)), setup.box_height, 2 * setup.box_height))
 
   # Location
   lo_size    = string(get_nested_field(elements, element = :LOCATION, field = :size))
   lo_box     = string(get_nested_field(elements, element = :LOCATION, field = :box))
-  lo_coord_x = string(grid[parse(Int, lo_box), 2])
-  lo_coord_y = string(grid[parse(Int, lo_box), 3])
-  lo_width   = string(ifelse(parse(Int, lo_size) < 3, setup.box_width, 2 * setup.box_width))
-  lo_height  = string(ifelse(isodd(parse(Int, lo_size)), setup.box_height, 2 * setup.box_height))
+  if lo_box == "nothing"
+    lo_box = "1"
+  end
+  lo_coord_x = string(grid[tryparse(Int, lo_box), 2])
+  lo_coord_y = string(grid[tryparse(Int, lo_box), 3])
+  lo_width   = string(ifelse(tryparse(Int, lo_size) < 3, setup.box_width, 2 * setup.box_width))
+  lo_height  = string(ifelse(isodd(tryparse(Int, lo_size)), setup.box_height, 2 * setup.box_height))
 
   if isfile(setup.path_save_info*"/"*"julia_info.csv")
 #    println("[ INFO: already existing INFO file is delete! ]")
