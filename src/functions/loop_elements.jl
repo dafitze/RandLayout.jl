@@ -31,6 +31,10 @@ function loop_elements(setup; elements, dispINFO = false)
       #  # update available boxes
       setfield!(setup, :boxes, boxes_updated)
       #end
+      # DO SHAPE STUFF
+      x, y, w, h = assign_shape(setup) 
+      shape_string = replace(string([x,y,w,h]), "," => ";", "[" => "", "]" => "")
+      setfield!(setup, :shape, shape_string)
     end
   end
 end

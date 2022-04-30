@@ -14,5 +14,6 @@
   path_img::String = ""
   path_title::String = ""
   path_text::String = ""
+  shape::String = "99"
 end
 

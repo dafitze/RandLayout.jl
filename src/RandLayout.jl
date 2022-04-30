@@ -15,7 +15,7 @@ include("structs/logo.jl")
 include("structs/elements.jl")
 
 # functions
-export plot_grid, plot_numbers, plot_fill_box, get_nested_field, set_nested_field, loop_elements, plot_elements, assign_box, check_adjacent, index_by_size, do_elements_fit, get_options, write_info, setup_grid
+export plot_grid, plot_numbers, plot_fill_box, get_nested_field, set_nested_field, loop_elements, plot_elements, assign_box, check_adjacent, index_by_size, do_elements_fit, get_options, write_info, setup_grid, assign_shape, plot_shape
 include("functions/plot_grid.jl")
 include("functions/plot_numbers.jl")
 include("functions/plot_fill_box.jl")
@@ -30,6 +30,8 @@ include("functions/do_elements_fit.jl")
 include("functions/get_options.jl") 
 include("functions/write_info.jl") 
 include("functions/setup_grid.jl") 
+include("functions/assign_shape.jl") 
+include("functions/plot_shape.jl") 
 
 
 end # module

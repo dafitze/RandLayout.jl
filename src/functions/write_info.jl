@@ -62,8 +62,8 @@ function write_info(setup, elements, grid)
   end
 
   open(setup.path_save_info*"/"*"setup.csv", "a") do f
-    write(f, "grid_numbers", ",", "grid_lines", ",", "left_border", ",", "border", ",", "box_width", ",", "box_height", ",", "boxes", ",", "path_img", ",", "path_title", ",", "path_text", "\n",
-          string(setup.grid_numbers), ",", string(setup.grid_lines), ",", string(setup.left_border), ",", string(setup.border), ",", string(setup.box_width), ",", string(setup.box_height), ",", replace(string(collect(setup.boxes)), "," => ";", "[" => "", "]" => ""), ",", setup.path_img, ",", setup.path_title, ",", setup.path_text)
+    write(f, "grid_numbers", ",", "grid_lines", ",", "left_border", ",", "border", ",", "box_width", ",", "box_height", ",", "boxes", ",", "path_img", ",", "path_title", ",", "path_text", ",", "shape", "\n",
+          string(setup.grid_numbers), ",", string(setup.grid_lines), ",", string(setup.left_border), ",", string(setup.border), ",", string(setup.box_width), ",", string(setup.box_height), ",", replace(string(collect(setup.boxes)), "," => ";", "[" => "", "]" => ""), ",", setup.path_img, ",", setup.path_title, ",", setup.path_text, ",", setup.shape)
   end
 
   # write grid
