@@ -10,9 +10,9 @@ function set_nested_field(x; element::Symbol, field::Symbol, value)
   # set nested field (UGLY HACK)
   if element == :TITLE
     setfield!(x, Symbol(element), title(size = SIZE, box = BOX));
-  elseif element == :TEXT
+  elseif element == :TEXT || element == :TEXT2
     setfield!(x, Symbol(element), text(size = SIZE, box = BOX));
-  elseif element == :IMG
+  elseif element == :IMG || element == :IMG2 || element == :IMG3
     setfield!(x, Symbol(element), image(size = SIZE, box = BOX));
   elseif element == :DATE
     setfield!(x, Symbol(element), date(size = SIZE, box = BOX));

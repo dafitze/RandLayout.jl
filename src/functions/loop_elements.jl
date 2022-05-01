@@ -8,34 +8,31 @@ function loop_elements(setup; elements, dispINFO = false)
   for ELEMENT in eachrow(ordered)
     SIZE = get_nested_field(elements, element = ELEMENT[1], field = :size)
     nb, options = get_options(boxes_available = setup.boxes, size = SIZE)
-    #println("SET:  $(ELEMENT)")
-    #println("SIZE: $(SIZE)")
-    #println("POSSIBILITIES: ", nb)
+    #println("SET ELEMENT:  $(ELEMENT)")
+    #println("  size: $(SIZE)")
+    #println("  possibilities: ", nb)
 
     if SIZE != 0 && nb > 0
-      #  println("Field: ", ELEMENT)
-      #  println("  size: ", SIZE)
+        println("Field: ", ELEMENT)
+        println("  size: ", SIZE)
       #  println("  BEFORE: ", setup.boxes)
       BOX, boxes_updated = assign_box(boxes_available = setup.boxes,
                                       size = SIZE)
-     # println("Element: $(ELEMENT)")
-      #  println("  box: ", BOX)
+        println("  box: ", BOX)
       #  println("  AFTER: ", boxes_updated)
       #  # set chosen box number
-      #  println("before set nested field")
       set_nested_field(elements,
                        element = ELEMENT[1],
                        field = :box,
                        value = BOX)
-      #  println("after set nested field")
       #  # update available boxes
       setfield!(setup, :boxes, boxes_updated)
       #end
     end
   end
   # DO SHAPE STUFF
-  x, y, w, h = assign_shape(setup) 
-  shape_string = replace(string([x,y,w,h]), "," => ";", "[" => "", "]" => "")
+  x, y, w, h = assign_shape(setup); 
+  shape_string = replace(string([x,y,w,h]), "," => ";", "[" => "", "]" => "");
   setfield!(setup, :shape, shape_string)
 end
 
